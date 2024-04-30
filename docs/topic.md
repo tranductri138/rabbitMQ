@@ -4,12 +4,12 @@
 ### Quá trình diễn ra như sau:
 
 #### Có một nhà xuất bản tạo kết nối tới RabbitMQ và tạo một kênh (channel) để gửi tin nhắn.
-#### Nhà xuất bản khai báo (declare) một trao đổi (exchange) trong RabbitMQ và chỉ định loại trao đổi là "topic". Loại trao đổi "topic" cho phép bạn định tuyến tin nhắn dựa trên các chủ đề (topics) có thể chứa các từ khóa định danh (routing keys) có thể đa dạng.
-#### Các người tiêu thụ tạo kết nối tới RabbitMQ và tạo một kênh để nhận tin nhắn.
-#### Mỗi người tiêu thụ khai báo một hàng đợi (queue) trong RabbitMQ và liên kết hàng đợi này với trao đổi đã được khai báo bởi nhà xuất bản. Người tiêu thụ cũng chỉ định các từ khóa định danh (routing keys) để chỉ rõ các chủ đề (topics) mà họ quan tâm.
-#### Nhà xuất bản gửi tin nhắn vào trao đổi và chỉ định từ khóa định danh (routing key) cho tin nhắn. Từ khóa định danh có thể chứa các ký tự đại diện, ví dụ như "*" (đại diện cho một từ khóa) hoặc "#" (đại diện cho nhiều từ khóa).
+#### Publisher khai báo (declare) một trao đổi (exchange) trong RabbitMQ và chỉ định loại trao đổi là "topic". Loại trao đổi "topic" cho phép bạn định tuyến tin nhắn dựa trên các chủ đề (topics) có thể chứa các từ khóa định danh (routing keys) có thể đa dạng.
+#### Consumers tạo kết nối tới RabbitMQ và tạo một kênh để nhận tin nhắn.
+#### Consumer khai báo một hàng đợi (queue) trong RabbitMQ và liên kết hàng đợi này với trao đổi đã được khai báo bởi nhà xuất bản. Consumer cũng chỉ định các từ khóa định danh (routing keys) để chỉ rõ các chủ đề (topics) mà họ quan tâm.
+#### Publisher gửi tin nhắn vào trao đổi và chỉ định từ khóa định danh (routing key) cho tin nhắn. Từ khóa định danh có thể chứa các ký tự đại diện, ví dụ như "*" (đại diện cho một từ khóa) hoặc "#" (đại diện cho nhiều từ khóa).
 #### RabbitMQ sẽ định tuyến tin nhắn đến hàng đợi phù hợp dựa trên từ khóa định danh (routing key) và liên kết giữa hàng đợi và trao đổi.
-#### Người tiêu thụ sẽ nhận và xử lý tin nhắn từ hàng đợi của mình.
+#### Consumer sẽ nhận và xử lý tin nhắn từ hàng đợi của mình.
 
 ---
 
