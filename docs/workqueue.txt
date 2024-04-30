@@ -1,0 +1,17 @@
+Work Queues (cũng được gọi là Task Queues) là một khái niệm trong RabbitMQ, nơi mà các tác vụ (tasks)
+ được gửi đến và xử lý bởi một nhóm các công nhân (workers) một cách song song.
+
+Trong mô hình Work Queues, có một hàng đợi (queue) trong RabbitMQ, chứa các tác vụ cần được thực hiện.
+Một hoặc nhiều công nhân (workers) đăng ký để tiêu thụ (consume) các tác vụ từ hàng đợi này và xử lý chúng.
+
+Các tác vụ trong hàng đợi được xử lý theo nguyên tắc FIFO (First-In-First-Out), có nghĩa
+là các tác vụ được xử lý theo thứ tự chúng được đưa vào hàng đợi.
+
+Khi một công nhân (worker) hoàn thành một tác vụ, nó sẽ yêu cầu một tác vụ tiếp theo từ hàng đợi.
+Quá trình này tiếp tục cho đến khi không còn tác vụ nào trong hàng đợi hoặc công nhân không còn
+sẵn sàng để xử lý thêm tác vụ.
+
+Công việc (work) trong Work Queues có thể là bất kỳ công việc nào mà bạn muốn thực hiện,
+ví dụ như xử lý dữ liệu, tính toán phức tạp, gửi email, tải xuống tệp, và nhiều công việc khác.
+Với Work Queues, bạn có thể phân tải công việc một cách hiệu quả giữa nhiều công nhân và đảm bảo rằng
+các tác vụ được xử lý một cách song song và hiệu quả.
