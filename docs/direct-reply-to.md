@@ -1,0 +1,7 @@
+# Direct Reply-to
+
+#### Direct Reply-to là một cơ chế trong RabbitMQ, allow ứng dụng gửi và nhận tin nhắn một cách trực tiếp mà không cần thông qua một hàng đợi trung gian. Truyền thống, khi một ứng dụng muốn gửi một tin nhắn chứa yêu cầu và mong đợi một phản hồi từ một ứng dụng khác, nó sẽ tạo ra một hàng đợi duy nhất để nhận phản hồi. Tuy nhiên, với Direct Reply-to, ứng dụng có thể gửi tin nhắn trực tiếp đến ứng dụng nhận phản hồi mà không cần sử dụng hàng đợi trung gian.
+
+#### Cơ chế Direct Reply-to hoạt động bằng cách gắn một hàng đợi tạm thời vào tin nhắn yêu cầu trước khi gửi nó đi. Khi ứng dụng nhận được tin nhắn yêu cầu, nó sẽ trích xuất địa chỉ của hàng đợi tạm thời và sử dụng nó để gửi phản hồi trực tiếp đến ứng dụng gốc. Điều này giúp giảm độ trễ và tăng hiệu suất trong việc giao tiếp giữa các ứng dụng, especially trong các tình huống đòi hỏi phản hồi nhanh.
+
+#### Direct Reply-to là một tùy chọn hữu ích khi cần sử dụng giao tiếp đồng bộ và trực tiếp giữa các ứng dụng RabbitMQ, mà không cần tạo hàng đợi trung gian cho mỗi yêu cầu. Tuy nhiên, cần lưu ý rằng Direct Reply-to chỉ phù hợp trong một số trường hợp cụ thể và không được khuyến nghị sử dụng trong môi trường có tải cao or yêu cầu độ tin cậy cao.
